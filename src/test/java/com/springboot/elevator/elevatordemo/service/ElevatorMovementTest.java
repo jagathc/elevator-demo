@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.springboot.elevator.elevatordemo.model.Direction;
 import com.springboot.elevator.elevatordemo.model.Elevator;
-import com.springboot.elevator.elevatordemo.model.Progress;
+import com.springboot.elevator.elevatordemo.model.MovementState;
 import com.springboot.elevator.elevatordemo.model.TravelRequest;
 
 public class ElevatorMovementTest {
@@ -19,37 +19,37 @@ public class ElevatorMovementTest {
         controller.addRequest(new TravelRequest(4,3,6));
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 1);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 2);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 3);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 4);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 5);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.IDLE);
+        assertTrue(elevator.getProgress() == MovementState.IDLE);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 6);
@@ -64,31 +64,31 @@ public class ElevatorMovementTest {
         controller.addRequest(new TravelRequest(4,3,6));
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.DOWN);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 6);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.DOWN);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 5);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 4);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 5);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.IDLE);
+        assertTrue(elevator.getProgress() == MovementState.IDLE);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 6);
@@ -103,13 +103,13 @@ public class ElevatorMovementTest {
         controller.addRequest(new TravelRequest(4,3,10));
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 1);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 2);
@@ -117,49 +117,49 @@ public class ElevatorMovementTest {
         controller.addRequest(new TravelRequest(6,2,8));
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 3);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 4);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 5);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 5);
         assertTrue(elevator.getCurrentLevel() == 6);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 5);
         assertTrue(elevator.getCurrentLevel() == 7);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 8);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 9);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.IDLE);
+        assertTrue(elevator.getProgress() == MovementState.IDLE);
         assertTrue(elevator.getDirection() == Direction.DOWN);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 10);
@@ -174,13 +174,13 @@ public class ElevatorMovementTest {
         controller.addRequest(new TravelRequest(4,3,10));
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 1);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 2);
@@ -188,49 +188,49 @@ public class ElevatorMovementTest {
         controller.addRequest(new TravelRequest(6,2,2));
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 3);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 4);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 5);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 6);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 7);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 8);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.UP);
         assertTrue(elevator.getPassengers() == 3);
         assertTrue(elevator.getCurrentLevel() == 9);
 
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.DOWN);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 10);
@@ -239,7 +239,7 @@ public class ElevatorMovementTest {
         elevator = controller.updateElevatorState();
         elevator = controller.updateElevatorState();
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.MOVING);
+        assertTrue(elevator.getProgress() == MovementState.MOVING);
         assertTrue(elevator.getDirection() == Direction.DOWN);
         assertTrue(elevator.getPassengers() == 2);
         assertTrue(elevator.getCurrentLevel() == 6);
@@ -248,7 +248,7 @@ public class ElevatorMovementTest {
         elevator = controller.updateElevatorState();
         elevator = controller.updateElevatorState();
         elevator = controller.updateElevatorState();
-        assertTrue(elevator.getProgress() == Progress.IDLE);
+        assertTrue(elevator.getProgress() == MovementState.IDLE);
         assertTrue(elevator.getDirection() == Direction.DOWN);
         assertTrue(elevator.getPassengers() == 0);
         assertTrue(elevator.getCurrentLevel() == 2);
@@ -270,7 +270,7 @@ public class ElevatorMovementTest {
 
         while(true) {
             elevator = controller.updateElevatorState();
-            if (elevator.getProgress() == Progress.IDLE) {
+            if (elevator.getProgress() == MovementState.IDLE) {
                 break;
             }
         }

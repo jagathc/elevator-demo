@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import com.springboot.elevator.elevatordemo.model.Direction;
 import com.springboot.elevator.elevatordemo.model.Elevator;
 import com.springboot.elevator.elevatordemo.model.ElevatorState;
-import com.springboot.elevator.elevatordemo.model.Progress;
+import com.springboot.elevator.elevatordemo.model.MovementState;
 import com.springboot.elevator.elevatordemo.model.TravelRequest;
 
 /**
@@ -53,7 +53,7 @@ public class ElevatorController {
     }
 
     boolean isMovingTowardsLevel(int level) {
-        return elevator.getProgress() == Progress.MOVING &&
+        return elevator.getProgress() == MovementState.MOVING &&
                 ((elevator.getDirection() == Direction.UP && elevator.getCurrentLevel() < level) ||
                         (elevator.getDirection() == Direction.DOWN && elevator.getCurrentLevel() > level));
     }
@@ -124,7 +124,7 @@ public class ElevatorController {
      */
     private Integer getNewLevel(final Elevator elevator) {
         int level = elevator.getCurrentLevel();
-        if (elevator.getProgress() == Progress.MOVING) {
+        if (elevator.getProgress() == MovementState.MOVING) {
             switch (elevator.getDirection()) {
                 case UP:
                     if (level != maxLevel) {
@@ -151,9 +151,9 @@ public class ElevatorController {
      */
     private ElevatorState getNewElevatorState(final ElevatorState state, final Integer level) {
         Direction direction = state.getDirection();
-        Progress progress;
+        MovementState progress;
         if ((direction == Direction.UP && level == maxLevel) || (direction == Direction.DOWN && level == minLevel)) {
-            progress = Progress.IDLE;
+            progress = MovementState.IDLE;
         } else {
             progress = state.getProgress();
         }
@@ -162,22 +162,22 @@ public class ElevatorController {
             TravelRequest first = acceptedRequests.get(0);
             Direction requestDirection = first.getDirection();
 
-            if (progress == Progress.IDLE) {
+            if (progress == MovementState.IDLE) {
 
                 if (level > first.getLevel()) {
-                    return new ElevatorState(Progress.MOVING, Direction.DOWN);
+                    return new ElevatorState(MovementState.MOVING, Direction.DOWN);
                 } else if (level < first.getLevel()) {
-                    return new ElevatorState(Progress.MOVING, Direction.UP);
+                    return new ElevatorState(MovementState.MOVING, Direction.UP);
                 } else {
-                    return new ElevatorState(Progress.MOVING, requestDirection);
+                    return new ElevatorState(MovementState.MOVING, requestDirection);
                 }
             } else {
                 if (level == first.getLevel() && direction != requestDirection) {
-                    return new ElevatorState(Progress.MOVING, requestDirection);
+                    return new ElevatorState(MovementState.MOVING, requestDirection);
                 }
             }
         } else {
-            return new ElevatorState(Progress.IDLE, direction);
+            return new ElevatorState(MovementState.IDLE, direction);
         }
 
         return new ElevatorState(progress, direction);

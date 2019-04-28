@@ -6,15 +6,15 @@ package com.springboot.elevator.elevatordemo.model;
  *
  */
 public class ElevatorState {
-    private final Progress progress;
+    private final MovementState progress;
     private final Direction direction;
 
-    public ElevatorState(Progress progress, Direction direction) {
+    public ElevatorState(MovementState progress, Direction direction) {
         this.progress = progress;
         this.direction = direction;
     }
 
-    public Progress getProgress() {
+    public MovementState getProgress() {
         return progress;
     }
 

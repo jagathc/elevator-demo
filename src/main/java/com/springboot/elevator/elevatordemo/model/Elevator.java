@@ -12,7 +12,7 @@ public class Elevator {
     private int currentLevel = 1;
     private int passengers;
     @JsonIgnore
-    private ElevatorState state = new ElevatorState(Progress.IDLE, Direction.UP);
+    private ElevatorState state = new ElevatorState(MovementState.IDLE, Direction.UP);
 
     public Elevator(String name, int passengers, int currentLevel, ElevatorState state) {
         this.passengers = passengers;
@@ -42,7 +42,7 @@ public class Elevator {
         return state;
     }
 
-    public Progress getProgress() {
+    public MovementState getProgress() {
         return state.getProgress();
     }
 
